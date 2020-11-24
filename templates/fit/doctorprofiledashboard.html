@@ -15,8 +15,12 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="css/font-awesome-ie7.min.css">
-    <title>My Patients</title>
+    <title>Doctor Dashboard</title>
     <style>
       :root {
         --header-height: 3rem;
@@ -851,7 +855,148 @@
       width: 100px;
       border-radius: 50%;
     } 
+/* Doctor Profile */
+.bg{
+    
+  /* you can add overflow:hidden here to make the scrollbar disappear */
+    overflow:hidden;
+    padding-top: 60px;
+    padding-left: 15%;
+    height: 100%;
+    width: 100%;
+    background: white;
+  
 
+}
+#button-back {
+  padding: 15px;
+  color: white;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, .5);
+  font-size: 20pt;
+}
+
+.profile-body{
+margin: 25px;
+
+}
+
+.profile {
+margin-top: -45px;
+margin-left: auto;
+margin-right: auto;
+border-radius: 25px;
+background-color: rgb(190, 196, 195);
+padding: 20px;
+z-index: 0;
+}
+
+.socialmedia {
+    text-align: center;
+}
+
+.photo {
+    margin: 25px;
+
+}
+
+.image--cover {
+    width: 170px;
+    height: 170px;
+    border: #fff 3px solid;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: -40px;    
+}
+
+.username,
+.profession,
+.locationname,
+.descricao {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 1px;
+}
+
+.username {
+ 
+    font-size: 20pt;
+    margin: 2px
+}
+
+.profession {
+    font-size: 14pt;
+}
+
+.locationname {
+    font-size: 14pt;
+    margin: 2px
+}
+
+.descricao {
+    border-top: #969696 solid 1px;
+    padding: 10px;
+    font-size: 11pt;
+    margin: 5px;
+}
+
+.button-facebook,
+.button-instagram,
+.button-twitter,
+.button-whatsapp {
+    padding: 5px;
+    font-size: 30pt;
+}
+.button-facebook {
+    color: #3C5A99;
+}
+.button-instagram {
+  color: #893dc2;
+}
+.button-twitter {
+    color: #1DA1F2;
+}
+.button-whatsapp {
+    color: #4AC959;
+}
+
+#rating-stars {
+    margin: 4px;
+}
+
+#rating-stars .stars {
+    display: inline-flex;
+  }
+  #rarate-input {
+    pointer-events: none;
+  }
+  #rating-stars .rate-input {
+    position: absolute;
+    left: -9999px;
+  }
+  #rating-stars label {
+    cursor: pointer;
+    padding: 1px;
+    font-size: 20pt;
+  }
+  #rating-stars .star-icon {
+    color: orange;
+  }
+
+  #rating-stars .rate-input:checked ~ .star-label .star-icon {
+    color: #999;
+  }
+  #rating-stars .stars:hover .star-label .star-icon {
+    color: orange;
+  }
+  #rating-stars .rate-input:hover ~ .star-label .star-icon {
+    color: #999;
+  }
     </style>
   </head>
   <body>
@@ -875,7 +1020,7 @@
           <li><a href="#0">About us</a></li>
           <li class="has-children account">
             <a href="#0">
-              <img src="https://yt3.ggpht.com/-MEN5SjDNHRo/AAAAAAAAAAI/AAAAAAAAAAA/owyT3rb7mNI/s900-c-k-no/photo.jpg" alt="avatar">
+              <img src="https://www.iconbunny.com/icons/media/catalog/product/2/1/2131.12-doctor-icon-iconbunny.jpg" alt="avatar">
               Account
             </a>
   
@@ -918,83 +1063,57 @@
           <li class="action-btn"><a href="#0">Contact Us</a></li>
         </ul>
       </nav>
-      <!-- main work -->
-      
-      <div class="container cd-content-wrapper">
-        <h1 style="font-weight: bolder; color: var(--first-color-darken);">Patient Profiles</h1>
-          <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4">
-            
-            <div class="card">
-                <div class="card-body">
-                  <img class="card-img-top" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-128.png"  />
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title" style="font-weight: bolder; font-size: larger;">Patient 1</h3><br><br>
-                
-                    <button
-              type="button"
-              class="btn card-text mx-2"
-              style="background-color: rgb(30, 165, 142); font-size: medium; "
-              
-            >
-              View Prescription
-            </button>
-                  
-                </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <img class="card-img-top" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"  />
-              </div>
-              <div class="card-body">
-                <h3 class="card-title" style="font-weight: bolder;font-size: larger;">Patient 2</h3><br><br>
-                <button
-                type="button"
-                class="btn card-text mx-2"
-                style="background-color: rgb(30, 165, 142); font-size: medium; "
-                
-              >
-                View Prescription
-              </button>
-              </div>
-           </div>
-           <div class="card">
-            <div class="card-body">
-              <img class="card-img-top" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"  />
-            </div>
-            <div class="card-body">
-              <h3 class="card-title" style="font-weight: bolder;font-size: larger;">Patient 3</h3><br><br>
-              <button
-              type="button"
-              class="btn card-text mx-2"
-              style="background-color: rgb(30, 165, 142); font-size: medium; "
-              
-            >
-              View Prescription
-            </button>
-            </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <img class="card-img-top" src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-128.png"  />
-             
-              </div>
-              <div class="card-body">
-                <h3 class="card-title" style="font-weight: bolder;font-size: larger;">Patient 4</h3><br><br>
-                <button
-                type="button"
-                class="btn card-text mx-2"
-                style="background-color: rgb(30, 165, 142); font-size: medium; "
-                
-              >
-                View Prescription
-              </button>
-              </div>
-          </div>
-           
-            </div>
-     </div> <!-- .cd-content-wrapper -->
     </main-tamvan>
+      <!-- main work -->
+      <div class="bg"> 
+      <a href="#"><i class="fas fa-arrow-left" id="button-back"></i></a>
+    <div class="profile-body">
+        <div class="photo">
+            <img src="https://www.iconbunny.com/icons/media/catalog/product/2/1/2131.12-doctor-icon-iconbunny.jpg" class="image--cover">
+        </div>
+        <div class="profile">
+
+            <div id="rating-stars" align="center">
+                <div class="stars">
+                    <label aria-label="first-star" class="star-label" for="rate-1"><i
+                            class="rate-icon star-icon fa fa-star"></i></label>
+                    <input class="rate-input" name="rating" id="rate-1" value="1" type="radio">
+                    <label aria-label="second-star" class="star-label" for="rate-2"><i
+                            class="rate-icon star-icon fa fa-star"></i></label>
+                    <input class="rate-input" name="rating" id="rate-2" value="2" type="radio">
+                    <label aria-label="third-star" class="star-label" for="rate-3"><i
+                            class="rate-icon star-icon fa fa-star"></i></label>
+                    <input class="rate-input" name="rating" id="rate-3" value="3" type="radio">
+                    <label aria-label="fourth-star" class="star-label" for="rate-4"><i
+                            class="rate-icon star-icon fa fa-star"></i></label>
+                    <input class="rate-input" name="rating" id="rate-4" value="4" type="radio">
+                    <label aria-label="fifth-star" class="star-label" for="rate-5"><i
+                            class="rate-icon star-icon fa fa-star"></i></label>
+                    <input class="rate-input" name="rating" id="rate-5" value="5" type="radio">
+                </div>
+            </div>
+
+            <h1 class="username">Dr. abc</h1>
+            <h2 class="profession"> 5+ yrs experience </h2>
+            <br>
+            <h3 class="locationname"><i class="fas fa-map-marker-alt"></i> New Delhi</h3>
+            <p class="descricao">Mussum Ipsum, cacilds vidis litro abertis. Tá deprimidis, eu conheço uma cachacis que
+                pode alegrar sua vidis. Quem manda na minha terra sou euzis! Nullam volutpat risus nec leo commodo, ut
+                interdum diam laoreet. Sed non consequat odio. Suco
+                de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.</p>
+<center>
+                <button
+                type="button"
+                class="btn card-text mx-2"
+                style="background-color: rgb(30, 165, 142); font-size: medium;  "
+                
+              >
+                Complete Profile
+              </button>
+            </center>
+        </div>
+    </div>
+</div>
 
 
     <!-- Optional JavaScript -->
