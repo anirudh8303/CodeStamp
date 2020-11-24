@@ -1,354 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
 
-        <!-- ===== CSS ===== -->
-       <style>
-           /*===== GOOGLE FONTS =====*/
-/*===== VARIABLES CSS =====*/
-:root{
-  --header-height: 3rem;
+    <!-- =====BOX ICONS===== -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
 
-  /*===== Colors =====*/
-  --first-color: #4bc4a0;
-  --first-color-dark:#118b6d;
-  --first-color-darken: #087056;
-  --white-color: #FCF8F8;
-  
-  /*===== Font and typography =====*/
-  --body-font: 'Poppins', sans-serif;
-  --big-font-size: 2.5rem;
-  --normal-font-size: .938rem;
-  
-  /*===== z index =====*/
-  --z-fixed: 100;
-}
+    <!-- ===== CSS ===== -->
+    <style>
+      /*===== GOOGLE FONTS =====*/
+      /*===== VARIABLES CSS =====*/
+      :root {
+        --header-height: 3rem;
 
-@media screen and (min-width: 768px){
-  :root{
-    --big-font-size: 5rem;
-    --normal-font-size: 1rem;
-  }
-}
+        /*===== Colors =====*/
+        --first-color: #4bc4a0;
+        --first-color-dark: #118b6d;
+        --first-color-darken: #087056;
+        --white-color: #fcf8f8;
 
-/*===== BASE =====*/
-*,::before,::after{
-  box-sizing: border-box;
-}
+        /*===== Font and typography =====*/
+        --body-font: "Poppins", sans-serif;
+        --big-font-size: 2.5rem;
+        --normal-font-size: 0.938rem;
 
-body{
-  margin: var(--header-height) 0 0 0;
-  padding: 0;
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  font-weight: 500;
-}
+        /*===== z index =====*/
+        --z-fixed: 100;
+      }
+      .rdios {
+        display: flex;
+        justify-content: space-evenly;
+      }
 
-h1,h3,p,ul{
-  margin: 0;
-}
+      @media screen and (min-width: 768px) {
+        :root {
+          --big-font-size: 5rem;
+          --normal-font-size: 1rem;
+        }
+      }
 
-ul{
-  padding: 0;
-  list-style: none;
-}
+      /*===== BASE =====*/
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+      }
 
-a{
-  text-decoration: none;
-}
+      body {
+        margin: var(--header-height) 0 0 0;
+        padding: 0;
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+        font-weight: 500;
+        overflow: hidden;
+      }
 
-img{
-  max-width: 100%;
-  height: auto;
-}
+      h1,
+      h3,
+      p,
+      ul {
+        margin: 0;
+      }
 
-/*===== LAYOUT =====*/
-.bd-grid{
-  max-width: 1024px;
-  display: grid;
-  grid-template-columns: 100%;
-  column-gap: 2rem;
-  width: calc(100% - 2rem);
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
+      ul {
+        padding: 0;
+        list-style: none;
+      }
 
-.l-header{
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: var(--z-fixed);
-  background-color: var(--first-color);
-}
+      a {
+        text-decoration: none;
+      }
 
-/*===== NAV =====*/
-.nav{
-  height: var(--header-height);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 3px solid #087056;
- border-bottom-left-radius: 8px;
-}
+      img {
+        max-width: 100%;
+        height: auto;
+      }
 
-@media screen and (max-width: 768px){
-  .nav__menu{
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100%;
-    padding: 3.5rem 1.5rem 0;
-    background: rgba(255,255,255,.3);
-    backdrop-filter: blur(10px);
-    transition: .5s;
-  }
-}
+      /*===== LAYOUT =====*/
+      .bd-grid {
+        max-width: 1024px;
+        display: grid;
+        grid-template-columns: 100%;
+        column-gap: 2rem;
+        width: calc(100% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
 
-.nav__close{
-  position: absolute;
-  top: .75rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+      .l-header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: var(--z-fixed);
+        background-color: var(--first-color);
+      }
 
-.nav__item{
-  margin-bottom: 2rem;
-}
+      /*===== NAV =====*/
+      .nav {
+        height: var(--header-height);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid #087056;
+        border-bottom-left-radius: 8px;
+      }
 
-.nav__close, .nav__link, .nav__logo, .nav__toggle{
-  color: var(--white-color);
-}
+      @media screen and (max-width: 768px) {
+        .nav__menu {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          height: 100%;
+          padding: 3.5rem 1.5rem 0;
+          background: rgba(14, 11, 11, 0.5);
+          backdrop-filter: blur(10px);
+          transition: 0.5s;
+        }
+      }
 
-.nav__link:hover{
-  color: var(--first-color-darken);
-}
+      .nav__close {
+        position: absolute;
+        top: 0.75rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
 
-.nav__toggle{
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+      .nav__item {
+        margin-bottom: 2rem;
+      }
 
-/*=== Show menu ===*/
-.show{
-  right: 0;
-}
+      .nav__close,
+      .nav__link,
+      .nav__logo,
+      .nav__toggle {
+        color: var(--white-color);
+      }
 
-/*===== HOME =====*/
-.home{
-  background-color: var(--first-color);
+      .nav__link:hover {
+        color: var(--first-color-darken);
+      }
 
-}
+      .nav__toggle {
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
 
-.home__container{
-  height: calc(100vh - var(--header-height));
-  grid-template-rows: repeat(2, max-content);
-  row-gap: 1.5rem;
-}
+      /*=== Show menu ===*/
+      .show {
+        right: 0;
+      }
 
-.home__img{
-  position: relative;
-  padding-top: 1.5rem;
-  justify-self: center;
-  width: 302px;
-  height: 233px;
-}
+      /*===== HOME =====*/
+      .home {
+        background-color: var(--first-color);
+      }
 
-.home__img img{
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+      .home__container {
+        height: calc(100vh - var(--header-height));
+        grid-template-rows: repeat(2, max-content);
+        row-gap: 1.5rem;
+      }
 
-.home__data{
-  color: var(--white-color);
-}
+      .home__img {
+        position: relative;
+        padding-top: 1.5rem;
+        justify-self: center;
+        width: 302px;
+        height: 233px;
+      }
 
-.home__title{
-  font-size: var(--big-font-size);
-  line-height: 1.3;
-  margin-bottom: 1rem;
-}
+      .home__img img {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
 
-.home__description{
-  margin-bottom: 2.5rem;
-}
+      .home__data {
+        color: var(--white-color);
+      }
 
-.home__button{
-  display: inline-block;
-  background-color: var(--first-color-dark);
-  color: var(--white-color);
-  padding: 1.125rem 2rem;
-  border-radius: .5rem;
-}
+      .home__title {
+        font-size: var(--big-font-size);
+        line-height: 1.3;
+        margin-bottom: 1rem;
+      }
 
-.home__button:hover{
-  background-color: var(--first-color-darken);
-}
+      .home__description {
+        margin-bottom: 2.5rem;
+      }
 
-/* ===== MEDIA QUERIES =====*/
-@media screen and (min-width: 768px){
-  body{
-    margin: 0;
-  }
-  
-  .nav{
-    height: calc(var(--header-height) + 1.5rem);
-  }
+      .home__button {
+        display: inline-block;
+        background-color: var(--first-color-dark);
+        color: var(--white-color);
+        padding: 1.125rem 2rem;
+        border-radius: 0.5rem;
+      }
 
-  .nav__toggle, .nav__close{
-    display: none;
-  }
+      .home__button:hover {
+        background-color: var(--first-color-darken);
+      }
 
-  .nav__list{
-    display: flex;
-  }
+      /* ===== MEDIA QUERIES =====*/
+      @media screen and (min-width: 768px) {
+        body {
+          margin: 0;
+        }
 
-  .nav__item{
-    margin-left: 3rem;
-    margin-bottom: 0;
-  }
+        .nav {
+          height: calc(var(--header-height) + 1.5rem);
+        }
 
-  .home__container{
-    height: 100vh;
-    grid-template-columns: repeat(2, max-content);
-    grid-template-rows:  1fr;
-    row-gap: 0;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .home__img{
-    order: 1;
-    width: 375px;
-    height: 289px;
-  }
+        .nav__toggle,
+        .nav__close {
+          display: none;
+        }
 
-  .home__img img{
-    width: 375px;
-  }
-}
+        .nav__list {
+          display: flex;
+        }
 
-@media screen and (min-width: 1024px){
-  .bd-grid{
-    margin-left: auto;
-    margin-right: auto;
-  }
+        .nav__item {
+          margin-left: 3rem;
+          margin-bottom: 0;
+        }
 
-  .home__container{
-    justify-content: initial;
-    column-gap: 4.5rem;
-  }
+        .home__container {
+          height: 100vh;
+          grid-template-columns: repeat(2, max-content);
+          grid-template-rows: 1fr;
+          row-gap: 0;
+          align-items: center;
+          justify-content: center;
+        }
 
-  .home__img{
-    width: 604px;
-    height: 466px;
-  }
+        .home__img {
+          order: 1;
+          width: 375px;
+          height: 289px;
+        }
 
-  .home__img img{
-    width: 604px;
-  }
-}
-       </style>
-        <title>Amy Care</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Logo</a>
+        .home__img img {
+          width: 375px;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        .bd-grid {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .home__container {
+          justify-content: initial;
+          column-gap: 4.5rem;
+        }
+
+        .home__img {
+          width: 604px;
+          height: 466px;
+        }
+
+        .home__img img {
+          width: 604px;
+        }
+      }
+    </style>
+    <title>Amy Care</title>
+  </head>
+  <body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+      <nav class="nav bd-grid">
+        <div>
+          <a href="#" class="nav__logo">Logo</a>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <div class="nav__close" id="nav-close">
+            <i class="bx bx-x"></i>
+          </div>
+
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="#about" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="#skills" class="nav__link">Blog</a>
+            </li>
+            <li class="nav__item">
+              <a href="#contact" class="nav__link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="l-main">
+      <!--===== HOME =====-->
+      <section class="home" id="home">
+        <div class="home__container bd-grid">
+          <div class="home__img">
+            <img src="/media/fit/front/img2.png" alt="" class="move" />
+          </div>
+
+          <div class="home__data">
+            <h1 class="home__title">Amy Care</h1>
+            <h3 class="home__description">
+              The heart of your healthcare <br />
+              right here.
+            </h3>
+            <!-- Button trigger login modal -->
+            <button
+              type="button"
+              class="btn btn-success mx-2"
+              data-toggle="modal"
+              data-target="#login"
+            >
+              Log In
+            </button>
+
+            <!-- Login Modal -->
+            <div
+              class="modal fade"
+              id="login"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5
+                      style="color: #087056;"
+                      class="modal-title"
+                      id="exampleModalLabel"
+                    >
+                      Log In
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="post" action="/login/">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label
+                          for="exampleInputUserName"
+                          style="color: #087056;"
+                          >Username</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="exampleInputUsername"
+                          aria-describedby="usernameHelp"
+                          name="username"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label
+                          for="exampleInputPassword1"
+                          style="color: #087056;"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="exampleInputPassword1"
+                          name="password"
+                        />
+                      </div>
+                      <button type="submit" class="btn btn-success">
+                        Log In
+                      </button>
+                    </form>
+                  </div>
                 </div>
-                
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
+              </div>
+            </div>
+            <!-- Button trigger SignUp modal -->
+            <button
+              type="button"
+              class="btn btn-success mx-2"
+              data-toggle="modal"
+              data-target="#SignUpModal"
+            >
+              Sign Up
+            </button>
+
+            <!--SignUp Modal -->
+            <div
+              class="modal fade"
+              id="SignUpModal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5
+                      class="modal-title"
+                      id="exampleModalSignUpLabel"
+                      style="color: #087056;"
+                    >
+                      Sign-Up
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="post" action="/signup/">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="exampleInputEmail1" style="color: #087056;"
+                          >Email address</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="Email.."
+                          name="email1"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFullName" style="color: #087056;"
+                          >Full Name</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="exampleInputFullName1"
+                          name="fname"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleLocation" style="color: #087056;"
+                          >Location</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="exampleLocation"
+                          name="loc"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label
+                          for="exampleInputUsername"
+                          style="color: #087056;"
+                          >Username</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="exampleInputUserName"
+                          name="username1"
+                        />
+                      </div>
+
+                      <div class="form-group">
+                        <label
+                          for="exampleInputPassword1"
+                          style="color: #087056;"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="exampleInputPassword1"
+                          name="pass1"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label
+                          for="exampleConfirmPassword"
+                          style="color: #087056;"
+                          >Re-Type Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="exampleInputPassword1"
+                          name="pass2"
+                        />
+                      </div>
+                      <div class="rdios my-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="chklgin"
+                            id="exampleRadios1"
+                            value="Patient"
+                          />
+                          <label
+                            class="form-check-label"
+                            style="color: #087056;"
+                            for="exampleRadios1"
+                          >
+                            Patient
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="chklgin"
+                            id="exampleRadios2"
+                            value="Doctor"
+                          />
+                          <label
+                            class="form-check-label"
+                            style="color: #087056;"
+                            for="exampleRadios2"
+                          >
+                            Doctor
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="chklgin"
+                            id="exampleRadios3"
+                            value="Pharmacist"
+                          />
+                          <label
+                            class="form-check-label"
+                            style="color: #087056;"
+                            for="exampleRadios3"
+                          >
+                            Pharmacist
+                          </label>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-success">
+                        Submit
+                      </button>
+                    </form>
+                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-                <div class="nav__menu" id="nav-menu">
-                    <div class="nav__close" id="nav-close">
-                        <i class='bx bx-x'></i>
-                    </div>
+    <!--===== GSAP =====-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Blog</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
-            
-        </header>
+    <!--===== MAIN JS =====-->
+    <script>
+      /*===== MENU SHOW Y HIDDEN =====*/
+      const navMenu = document.getElementById("nav-menu"),
+        toggleMenu = document.getElementById("nav-toggle"),
+        closeMenu = document.getElementById("nav-close");
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home" id="home">
-                <div class="home__container bd-grid">
-                    <div class="home__img">
-                    
-                        <img src="/media/fit/front/img2.png"  alt="" class="move" >
-                    </div>
+      // SHOW
+      toggleMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
 
-                    <div class="home__data">
-                        <h1 class="home__title">Amy Care</h1>
-                        <h3 class="home__description">The heart of your healthcare <br> right here.</h3>
-                        <a href="#" class="home__button">Get Started</a>
-                    </div>
-                </div>
-            </section>
-        </main>
+      // HIDDEN
+      closeMenu.addEventListener("click", () => {
+        navMenu.classList.remove("show");
+      });
 
-        <!--===== GSAP =====-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+      /*===== MOUSEMOVE HOME IMG =====*/
+      document.addEventListener("mousemove", move);
+      function move(e) {
+        this.querySelectorAll(".move").forEach((layer) => {
+          const speed = layer.getAttribute("data-speed");
 
-        <!--===== MAIN JS =====-->
-        <script >
-            /*===== MENU SHOW Y HIDDEN =====*/
-const navMenu = document.getElementById('nav-menu'),
-    toggleMenu = document.getElementById('nav-toggle'),
-    closeMenu = document.getElementById('nav-close')
+          const x = (window.innerWidth - e.pageX * speed) / 120;
+          const y = (window.innerHeight - e.pageY * speed) / 120;
 
-// SHOW
-toggleMenu.addEventListener('click', ()=>{
-    navMenu.classList.toggle('show')
-})
+          layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        });
+      }
 
-// HIDDEN
-closeMenu.addEventListener('click', ()=>{
-    navMenu.classList.remove('show')
-})
+      /*===== GSAP ANIMATION =====*/
+      // NAV
+      gsap.from(".nav__logo, .nav__toggle", {
+        opacity: 0,
+        duration: 1,
+        delay: 2,
+        y: 10,
+      });
+      gsap.from(".nav__item", {
+        opacity: 0,
+        duration: 1,
+        delay: 2.1,
+        y: 30,
+        stagger: 0.2,
+      });
 
-/*===== MOUSEMOVE HOME IMG =====*/
-document.addEventListener('mousemove', move);
-function move(e){
-    this.querySelectorAll('.move').forEach(layer =>{
-        const speed = layer.getAttribute('data-speed')
+      // HOME
+      gsap.from(".home__title", { opacity: 0, duration: 1, delay: 1.6, y: 30 });
+      gsap.from(".home__description", {
+        opacity: 0,
+        duration: 1,
+        delay: 1.8,
+        y: 30,
+      });
+      gsap.from(".home__button", {
+        opacity: 0,
+        duration: 1,
+        delay: 2.1,
+        y: 30,
+      });
+      gsap.from(".home__img", { opacity: 0, duration: 1, delay: 1.3, y: 30 });
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
 
-        const x = (window.innerWidth - e.pageX*speed)/120
-        const y = (window.innerHeight - e.pageY*speed)/120
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
 
-        layer.style.transform = `translateX(${x}px) translateY(${y}px)`
-    })
-}
-
-/*===== GSAP ANIMATION =====*/
-// NAV
-gsap.from('.nav__logo, .nav__toggle', {opacity: 0, duration: 1, delay:2, y: 10})
-gsap.from('.nav__item', {opacity: 0, duration: 1, delay: 2.1, y: 30, stagger: 0.2,})
-
-// HOME
-gsap.from('.home__title', {opacity: 0, duration: 1, delay:1.6, y: 30})
-gsap.from('.home__description', {opacity: 0, duration: 1, delay:1.8, y: 30})
-gsap.from('.home__button', {opacity: 0, duration: 1, delay:2.1, y: 30})
-gsap.from('.home__img', {opacity: 0, duration: 1, delay:1.3, y: 30})
-        </script>
-    </body>
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
 </html>
