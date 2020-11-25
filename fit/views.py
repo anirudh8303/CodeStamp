@@ -15,8 +15,48 @@ def patientpage(request):
     return render(request, 'fit/patientDashboard.html')
 
 
+def about(request):
+    return render(request, 'fit/aboutus.html')
+
+
+def doctorprofile(request):
+    name = request.user.username
+    profile = Doctors.objects.filter(doc_username=name)
+    params = {
+        "profile": profile
+    }
+    return render(request, 'fit/doctorprofiledashboard.html', params)
+
+
+def updatedoctorprofile(request):
+    if request.method == "POST":
+        docid = request.POST['Docid']
+        phone = request.POST['phone']
+        add = request.POST['address']
+        spl = request.POST['cat']
+        idproof = request.FILES['doctoridProof']
+        profile = Doctors.objects.get(doc_id=docid)
+        profile.doc_phone = phone
+        profile.doc_address = add
+        profile.doc_idProof = idproof
+        profile.doc_category = spl
+        profile.save()
+        return redirect('/doctorprofile')
+
+
+def contactus(request):
+    return render(request, 'fit/contactus.html')
+
+
 def docpage(request):
-    return render(request, 'fit/doctorDashboard.html')
+    docid = request.user.username
+    doctor_patientList = Disease.objects.filter(doc__doc_username=docid)
+    print(doctor_patientList)
+
+    params = {
+        "patientList": doctor_patientList
+    }
+    return render(request, 'fit/doctorDashboard.html', params)
 
 
 def pharpage(request):

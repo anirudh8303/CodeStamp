@@ -13,7 +13,7 @@ class Patient(models.Model):
     pat_address = models.CharField(max_length=500, default="", null=True)
 
     def __str__(self):
-        return self.pat_name
+        return self.pat_username
 
 
 class Doctors(models.Model):
@@ -29,7 +29,7 @@ class Doctors(models.Model):
         upload_to='fit/doctors', default="", null=True)
 
     def __str__(self):
-        return self.doc_name
+        return self.doc_username
 
 
 class Disease(models.Model):
