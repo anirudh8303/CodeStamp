@@ -15,7 +15,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/font-awesome-ie7.min.css">
+    <!-- <link rel="stylesheet" href="css/font-awesome-ie7.min.css"> -->
     <title>My Patients</title>
     <style>
       :root {
@@ -314,7 +314,7 @@
     transform: translateY(-50%);
     height: 16px;
     width: 16px;
-    background: url(https://codyhouse.co/demo/responsive-sidebar-navigation/img/cd-search.svg) no-repeat 0 0;
+    background: url() no-repeat 0 0;
   }
   .cd-search input {
     padding-left: 32px;
@@ -349,7 +349,7 @@
     }
     .cd-search form, .cd-search input {
       height: 100%;
-      width: 130%;
+      width: 110%;
       padding-top: 6px;
       padding-bottom: 6px;
     }
@@ -524,7 +524,7 @@
     transform: translateY(-50%);
     height: 16px;
     width: 16px;
-    background: url(https://codyhouse.co/demo/responsive-sidebar-navigation/img/cd-nav-icons.svg) no-repeat 0 0;
+    background: url() no-repeat 0 0;
   }
   .cd-side-nav > ul > li.overview > a::before {
     background-position: -64px 0;
@@ -726,7 +726,7 @@
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
-    background: url(https://codyhouse.co/demo/responsive-sidebar-navigation/img/cd-arrow.svg);
+    background: url();
   }
   .has-children.selected > ul {
     display: block;
@@ -771,7 +771,7 @@
     }
     .cd-top-nav .has-children > a {
       height: 100%;
-      padding: 0 calc(1.8em + 22px) 0 calc(1.8em + 26px) !important;
+      padding: 0 calc(1.8em + 22px) 0 calc(1.8em + 25px) !important;
       line-height: 55px;
     }
     .cd-top-nav .has-children > a::after {
@@ -818,7 +818,7 @@
     /*=================*/
     @media only screen and (min-width: 300px){
       .cd-content-wrapper{
-      padding-top:80px;
+      padding: 80px 30px 0px;
     }  
     } 
     @media only screen and (min-width: 767px){
@@ -894,12 +894,12 @@
       <nav class="cd-side-nav">
         <ul>
           <li class="cd-label">DOCTOR</li>
-          <li class="has-children overview">
-            <a href="#0">Dashboard</a>
+          <li class="has-children">
+            <a href="doctorprofiledashboard.html">Dashboard</a>
           </li>
   
-          <li class="has-children comments">
-            <a href="#0">Patient Profiles</a>
+          <li class="has-children">
+            <a href="doctorDashBoard.html">Patient Profiles</a>
           </li>
         </ul>
   
@@ -1015,8 +1015,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://googledrive.com/host/0B_1DArceSF8qRXJUS29uRXNpdmM" type="text/javascript"></script>
-<script src="https://googledrive.com/host/B_1DArceSF8qWWRmRkQ2UkhrODQ" type="text/javascript"></script> <!-- Resource jQuery -->
+<!-- <script src="https://googledrive.com/host/0B_1DArceSF8qRXJUS29uRXNpdmM" type="text/javascript"></script> -->
+<!-- <script src="https://googledrive.com/host/B_1DArceSF8qWWRmRkQ2UkhrODQ" type="text/javascript"></script>  -->
+<!-- Resource jQuery -->
     <script>
       jQuery(document).ready(function(){
 	//cache DOM elements
@@ -1055,20 +1056,20 @@
 	});
 
 	//click on item and show submenu
-	$('.has-children > a').on('click', function(event){
-		var mq = checkMQ(),
-			selectedItem = $(this);
-		if( mq == 'mobile' || mq == 'tablet' ) {
-			event.preventDefault();
-			if( selectedItem.parent('li').hasClass('selected')) {
-				selectedItem.parent('li').removeClass('selected');
-			} else {
-				sidebar.find('.has-children.selected').removeClass('selected');
-				accountInfo.removeClass('selected');
-				selectedItem.parent('li').addClass('selected');
-			}
-		}
-	});
+	// $('.has-children > a').on('click', function(event){
+	// 	var mq = checkMQ(),
+	// 		selectedItem = $(this);
+	// 	if( mq == 'mobile' || mq == 'tablet' ) {
+	// 		event.preventDefault();
+	// 		if( selectedItem.parent('li').hasClass('selected')) {
+	// 			selectedItem.parent('li').removeClass('selected');
+	// 		} else {
+	// 			sidebar.find('.has-children.selected').removeClass('selected');
+	// 			accountInfo.removeClass('selected');
+	// 			selectedItem.parent('li').addClass('selected');
+	// 		}
+	// 	}
+	// });
 
 	//click on account and show submenu - desktop version only
 	accountInfo.children('a').on('click', function(event){
@@ -1089,19 +1090,19 @@
 	});
 
 	//on desktop - differentiate between a user trying to hover over a dropdown item vs trying to navigate into a submenu's contents
-	sidebar.children('ul').menuAim({
-        activate: function(row) {
-        	$(row).addClass('hover');
-        },
-        deactivate: function(row) {
-        	$(row).removeClass('hover');
-        },
-        exitMenu: function() {
-        	sidebar.find('.hover').removeClass('hover');
-        	return true;
-        },
-        submenuSelector: ".has-children",
-    });
+	// sidebar.children('ul').menuAim({
+  //       activate: function(row) {
+  //       	$(row).addClass('hover');
+  //       },
+  //       deactivate: function(row) {
+  //       	$(row).removeClass('hover');
+  //       },
+  //       exitMenu: function() {
+  //       	sidebar.find('.hover').removeClass('hover');
+  //       	return true;
+  //       },
+  //       submenuSelector: ".has-children",
+  //   });
 
 	function checkMQ() {
 		//check if mobile or desktop device
