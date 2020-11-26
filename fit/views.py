@@ -201,12 +201,13 @@ def contactus(request):
 
 
 def docpage(request):
-    docid = request.user.username
-    doctor_patientList = Disease.objects.filter(doc__doc_username=docid)
-    print(doctor_patientList)
+    docusername = request.user.username
+    doctor_patientList = Disease.objects.filter(doc__doc_username=docusername)
+    appointments = Appointment.objects.filter(doctor__doc_username=docusername)
 
     params = {
-        "patientList": doctor_patientList
+        "patientList": doctor_patientList,
+        "appointments": appointments
     }
     return render(request, 'fit/doctorDashboard.html', params)
 

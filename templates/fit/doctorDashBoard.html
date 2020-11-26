@@ -1087,6 +1087,41 @@
       <!-- .cd-content-wrapper -->
     </main-tamvan>
 
+    <div class="container cd-content-wrapper">
+      <h1 style="font-weight: bolder; color: var(--first-color-darken);">
+        Upcoming Appointments
+      </h1>
+      <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4">
+        {% for p in appointments %}
+        <div class="card">
+          <div class="card-body">
+            <img
+              class="card-img-top"
+              src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-128.png"
+            />
+          </div>
+          <div class="card-body">
+            <h3
+              class="card-title mb-4"
+              style="font-weight: bolder; font-size: larger;"
+            >
+            Patient_username: {{p.patient}}
+
+            </h3>
+            <h3
+            style="font-size: medium;"
+          >
+          Appointment id : {{p.appoint_id}}
+           
+          </h3>
+            <h3 style="font-size: medium;">
+            Appointment date : {{p.appointment_date}}
+            </h3>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
