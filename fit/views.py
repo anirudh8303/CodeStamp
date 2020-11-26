@@ -105,6 +105,23 @@ def about(request):
     return render(request, 'fit/aboutus.html')
 
 
+def updatepatientprofile(request):
+    if request.method == "POST":
+        patid = request.POST['patid']
+        phone = request.POST['phone']
+        add = request.POST['address']
+        idproof = request.FILES['patientidProof']
+        profile = Patient.objects.get(pat_id=patid)
+        profile.pat_phone = phone
+        profile.pat_address = add
+        profile.pat_idProof = idproof
+        profile.save()
+        logout(request)
+        messages.success(
+            request, "Profile updated. You are requested to login again!")
+        return redirect('/')
+
+
 def updatepharmacyprofile(request):
     if request.method == "POST":
         pharid = request.POST['pharid']
@@ -118,7 +135,10 @@ def updatepharmacyprofile(request):
         profile.phar_idProof = idproof
         profile.phar_ownerName = ownername
         profile.save()
-        return redirect('/pharmacyprofile')
+        logout(request)
+        messages.success(
+            request, "Profile updated. You are requested to login again!")
+        return redirect('/')
 
 
 def updatedoctorprofile(request):
@@ -134,7 +154,10 @@ def updatedoctorprofile(request):
         profile.doc_idProof = idproof
         profile.doc_category = spl
         profile.save()
-        return redirect('/doctorprofile')
+        logout(request)
+        messages.success(
+            request, "Profile updated. You are requested to login again!")
+        return redirect('/')
 
 
 def contactus(request):

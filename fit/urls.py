@@ -18,5 +18,7 @@ urlpatterns = [
     path('updatedoctorprofile/', views.updatedoctorprofile,
          name="updatedoctorprofile"),
     path('updatepharmacyprofile/', views.updatepharmacyprofile,
-         name="updatepharmayprofile")
+         name="updatepharmayprofile"),
+    path('updatepatientprofile/', views.updatepatientprofile,
+         name="updatepatientprofile")
 ]
