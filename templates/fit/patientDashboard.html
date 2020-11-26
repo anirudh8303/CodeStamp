@@ -15,8 +15,14 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
     <!-- <link rel="stylesheet" href="css/font-awesome-ie7.min.css"> -->
-    <title>Patient Dashboard~All Diseases</title>
+    <title>Patient Medical Details</title>
     <style>
       :root {
         --header-height: 3rem;
@@ -944,6 +950,67 @@
         width: 100px;
         border-radius: 50%;
       }
+      
+
+      #inputs,#unit-selector,#result{
+            padding: 20px;
+        }
+        #calculate{
+            padding: 3px 18px; 
+            background-color: #4bc4a0; 
+            margin: 10px 5px;
+            border-radius:8px
+        }
+        .required{
+            padding: 3px 18px; 
+            margin: 10px 5px;
+            border: 1px solid black;
+        }
+        #result {
+        display: none;
+        }
+
+        #bmi, #category {
+        font-weight: bold;
+        }
+
+        .bmi-underweight {
+        color: #38f;
+        }
+
+        .bmi-normal {
+        color: #3f3;
+        }
+
+        .bmi-overweight {
+        color: #ff3;
+        }
+
+        .bmi-obese-class-i {
+        color: #fa3;
+        }
+
+        .bmi-obese-class-ii {
+        color: #f63;
+        }
+
+        .bmi-obese-class-iii {
+        color: #f33;
+        }
+        #icn1
+        {
+          height: 100px;
+          width:100px;
+        }
+        #icn2
+        {
+          color: rgb(243, 83, 83);
+        }
+        #icn3
+        {
+          height: 100px;
+          width:100px;
+        }
     </style>
   </head>
   <body>
@@ -968,7 +1035,7 @@
           <li class="has-children account">
             <a href="#0">
               <img
-                src="https://www.iconbunny.com/icons/media/catalog/product/2/1/2131.12-doctor-icon-iconbunny.jpg"
+                src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/96/iconmonstr-user-20.png"
                 alt="avatar"
               />
               Account
@@ -1002,6 +1069,12 @@
           <li class="has-children">
             <a href="/viewpharmacy/">View Pharmacies</a>
           </li>
+        </ul>
+        <ul>
+          <li class="cd-label">KNOW YOUR HEALTH</li>
+          <li class="has-children"><a href="" data-toggle="modal" data-target="#exampleModal1">Healthy Heart Rate</a></li>
+          <li class="has-children"><a href="" data-toggle="modal" data-target="#exampleModal">Your BMI</a></li>
+          <li class="has-children"><a href="" data-toggle="modal" data-target="#exampleModal2">Healthy Diet Tips</a></li>
         </ul>
         <ul>
           <li class="cd-label">NEED OUR HELP</li>
@@ -1096,6 +1169,107 @@
       <!-- .cd-content-wrapper -->
     </main-tamvan>
 
+
+  <!-- Modal of BMI-->
+  <div class="modal fade mt-5" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title" id="exampleModalLabel">BMI Calculator</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <center>
+          <img src="https://cdn4.iconfinder.com/data/icons/popicon-bluetone-medical/256/59-256.png"  id="icn1">
+          </center>
+        <div class="modal-body">
+            <div id="inputs">
+                <input type="text" id="height" class="required" placeholder="Height" />
+                
+                <input type="text" id="weight" class="required" placeholder="Weight" pattern="[0-9.]+" />
+                <button id="calculate">Calculate</button>
+                <br>
+                <span id="result">Your BMI is <span id="bmi"></span> (<span id="category"></span>).</span>
+              </div>
+              
+              <div id="unit-selector">
+                <h2 style="font-size: 1.5rem; color: #118b6d; padding: 2px 0px;">Units</h2>
+              
+                <label><input type="radio" name="units" value="metric" checked /> Metric (centimeters, kilograms)</label>
+              
+                <label><input type="radio" name="units" value="us-imperial" /> US imperial (feet and inches, pounds)</label>
+              
+                <label><input type="radio" name="units" value="uk-imperial" /> UK imperial (feet and inches, stone)</label>
+              </div>
+        </div>
+      </div>
+    </div>
+ </div>
+    
+    <!--Modal of Healthy Heart Rate-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Healthy Heart Rate</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <center>
+        <a href="#" ><i class="fa fa-heartbeat fa-5x" id="icn2"></i></a>
+        </center>
+      <div class="modal-body">
+        Your resting heart rate is your pulse when you are calmly sitting or lying. It’s best to measure your resting
+         heart rate it in the morning before you get out of bed, according to the AHA. <b style="font-weight: bolder;">For adults 18 and older</b>, a normal
+         resting heart rate is <strong style="font-weight: bolder";>between 60 and 100 beats per minute (bpm)</strong>, depending on the person’s physical condition 
+         and age.<strong style="font-weight: bolder";>For children ages 6 to 15</strong>, the normal resting heart rate is<strong style="font-weight: bolder";>between 70 and 100 bpm</strong>, according to the AHA.
+<br><br>
+But a heart rate lower than 60 doesn’t necessarily mean you have a medical problem. Active people often have lower heart
+rates because their heart muscles don't need to work as hard to maintain a steady beat. <strong style="font-weight: bolder";>Athletes and people who are very
+ fit can have resting heat rate of 40 bpm.</strong>
+
+
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+ <!--Modal of Healthy Lifetyle tips-->
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Healthy Diet Tips</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <center>
+        <a href="#"><img src="https://cdn1.iconfinder.com/data/icons/dompicon-glyph-fitness-diet/256/examination-physical-statistic-fitness-diet-256.png" id="icn3"></a>
+        </center>
+      <div class="modal-body">
+        <h1 style="font-weight: bolder; color: rgb(243, 83, 83);">Healthy Eating Plan</h1>
+        <p>A healthy eating plan gives your  body the nutrients it needs every day while staying within your daily calorie  goal for weight loss. A healthy eating plan also will lower your risk for heart  disease and other health conditions. </p>
+        <p style="font-weight: bolder; color: rgb(243, 83, 83);"  >A healthy eating plan:</p>
+        <ul>
+          <li>1. Emphasizes vegetables, fruits, whole grains, and fat-free or low-fat dairy products</li>
+          <li>2 Includes lean meats, poultry,  fish, beans, eggs, and nuts</li>
+          <li>3. Limits saturated and <em>trans </em>fats, sodium, and added sugars</li>
+          <li>4. Controls portion sizes</li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -1117,7 +1291,134 @@
     <!-- <script src="https://googledrive.com/host/0B_1DArceSF8qRXJUS29uRXNpdmM" type="text/javascript"></script> -->
     <!-- <script src="https://googledrive.com/host/B_1DArceSF8qWWRmRkQ2UkhrODQ" type="text/javascript"></script>  -->
     <!-- Resource jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      
+      <script>
+        var $required = $('.required')
+         var $height = $('#height');
+         var $weight = $('#weight');
+         var mode;
+  
+         $('input:text').on('input', function () {
+         this.setCustomValidity('');
+         $('#result').fadeOut();
+         })
+  
+         $('input[name="units"]').change(function () {
+         $('input:text').val('').trigger('input');
+  
+         if ($(this).is(':checked')) {
+             mode = $(this).val();
+  
+             switch ($(this).val()) {
+             case 'metric':
+                 $height.attr('placeholder', 'Height (cm)');
+                 $height.attr('pattern', '[0-9]+(?:\.[0-9]*)?');
+  
+                 $weight.attr('placeholder', 'Weight (kg)');
+  
+                 break;
+  
+             case 'us-imperial':
+             case 'uk-imperial':
+                 $height.attr('placeholder', 'Height (ft\'in")');
+                 $height.attr('pattern', '([0-9]+)\'(?:([0-9.]+)")?');
+  
+                 if (mode === 'us-imperial') {
+                 $weight.attr('placeholder', 'Weight (lbs)');
+                 } else {
+                 $weight.attr('placeholder', 'Weight (st)');
+                 }
+  
+                 break;
+             }
+         }
+         }).change();  // Trigger initial check
+  
+         $('#calculate').click(function () {
+         $required.each(function () {
+             if (!$(this).val()) {
+             $(this).prop('required', true);
+             }
+         });
+         
+         var height = $height.val();
+         var weight = parseFloat($weight.val());
+         
+         if (height <= 0) {
+             $height[0].setCustomValidity('Number must be positive');
+         }
+         
+         if (weight <= 0) {
+             $weight[0].setCustomValidity('Number must be positive');
+         }
+         
+         if ($height.is(':invalid') || $weight.is(':invalid')) {
+             alert('Invalid input!');
+             return;
+         }
+         
+         var multiplier;
+         
+         switch (mode) {
+             case 'metric':
+             height = parseFloat(height) / 100;
+             multiplier = 1;
+  
+             break;
+  
+             case 'us-imperial':
+             case 'uk-imperial':
+             var match = new RegExp($height.attr('pattern')).exec(height);
+              height = parseInt(match[1])*12;
+              if (match[2] != null) {
+                height += parseFloat(match[2]);
+              }
+            
+             if (mode === 'us-imperial') {
+             multiplier = 703;
+             } else {
+             multiplier = 703 * 14;
+             }
+         
+             break;
+         }  
+         
+         var bmi = weight*multiplier / height**2;
+         
+         if (bmi <= 0 || bmi === Infinity || isNaN(bmi)) {
+             alert('Something went wrong (BMI is ' + bmi + '). Check the input.');
+             return;
+         }
+         
+         if (bmi === Infinity)
+         
+         var category;
+         
+         if (bmi < 18.5) {
+             category = 'Underweight';
+         } else if (bmi < 25.0) {
+             category = 'Normal';
+         } else if (bmi < 30.0) {
+             category = 'Overweight';
+         } else if (bmi < 35.0) {
+             category = 'Obese Class I';
+         } else if (bmi < 40.0) {
+             category = 'Obese Class II';
+         } else {
+             category = 'Obese Class III';
+         }
+         
+         $('#bmi').text(Math.round(bmi * 100) / 100);
+         $('#category').text(category).removeClass().addClass('bmi-' + category.toLowerCase().replace(/ /g, '-'));
+         $('#result').fadeIn();
+         });
+   </script>
+
     <script>
+
+
       jQuery(document).ready(function () {
         //cache DOM elements
         var mainContent = $(".cd-main-content"),
