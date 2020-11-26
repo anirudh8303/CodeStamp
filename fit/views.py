@@ -19,6 +19,16 @@ def about(request):
     return render(request, 'fit/aboutus.html')
 
 
+def pharmacyprofile(request):
+    username = request.user.username
+    pharm = Pharmacy.objects.filter(phar_username=username)
+    params = {
+        "pharm": pharm
+    }
+    return render(request, 'fit/pharmacyprofile.html', params)\
+
+
+
 def doctorprofile(request):
     name = request.user.username
     profile = Doctors.objects.filter(doc_username=name)
@@ -26,6 +36,22 @@ def doctorprofile(request):
         "profile": profile
     }
     return render(request, 'fit/doctorprofiledashboard.html', params)
+
+
+def updatepharmacyprofile(request):
+    if request.method == "POST":
+        pharid = request.POST['pharid']
+        phone = request.POST['phone']
+        add = request.POST['address']
+        ownername = request.POST['ownername']
+        idproof = request.FILES['pharmacyidProof']
+        profile = Pharmacy.objects.get(phar_id=pharid)
+        profile.phar_phone = phone
+        profile.phar_address = add
+        profile.phar_idProof = idproof
+        profile.phar_ownerName = ownername
+        profile.save()
+        return redirect('/pharmacyprofile')
 
 
 def updatedoctorprofile(request):
@@ -60,7 +86,11 @@ def docpage(request):
 
 
 def pharpage(request):
-    return render(request, 'fit/pharmacyDashboard.html')
+    patients = Disease.objects.all()
+    params = {
+        "allpatients": patients
+    }
+    return render(request, 'fit/pharmacyDashboard.html', params)
 
 
 def handleSignUp(request):

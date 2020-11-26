@@ -13,6 +13,9 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('contactus/', views.contactus, name="contactus"),
     path('doctorprofile/', views.doctorprofile, name="doctorprofile"),
+    path('pharmacyprofile/', views.pharmacyprofile, name="pharmacyprofile"),
     path('updatedoctorprofile/', views.updatedoctorprofile,
-         name="updatedoctorprofile")
+         name="updatedoctorprofile"),
+    path('updatepharmacyprofile/', views.updatepharmacyprofile,
+         name="updatepharmayprofile")
 ]
