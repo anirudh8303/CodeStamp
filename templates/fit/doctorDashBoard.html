@@ -964,14 +964,14 @@
       <nav class="cd-nav">
         <ul class="cd-top-nav">
           <li><a href="/">Home</a></li>
-          <li><a href="/about/">About us</a></li>
+          <li><a href="/about/">About us</a></li> 
           <li class="has-children account">
             <a href="#0">
               <img
                 src="https://www.iconbunny.com/icons/media/catalog/product/2/1/2131.12-doctor-icon-iconbunny.jpg"
                 alt="avatar"
               />
-              Account
+              {{request.user}}
             </a>
 
             <ul>
@@ -1002,8 +1002,6 @@
           <li class="action-btn"><a href="/contactus/">Contact Us</a></li>
         </ul>
       </nav>
-      <!-- main work -->
-
       <div class="container cd-content-wrapper">
         <h1 style="font-weight: bolder; color: var(--first-color-darken);">
           Patient Profiles
@@ -1087,7 +1085,7 @@
       <!-- .cd-content-wrapper -->
     </main-tamvan>
 
-    <div class="container cd-content-wrapper">
+    <div class="container cd-content-wrapper my-3">
       <h1 style="font-weight: bolder; color: var(--first-color-darken);">
         Upcoming Appointments
       </h1>
