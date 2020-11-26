@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from .models import Disease, Doctors, Patient, Pharmacy
+from .models import Disease, Doctors, Patient, Pharmacy, Appointment
 from django.contrib import messages
 
 # Create your views here.
@@ -9,6 +9,42 @@ from django.contrib import messages
 
 def index(request):
     return render(request, 'fit/index.html')
+
+
+def viewdoctors(request):
+    username = request.user.username
+    patloc = Patient.objects.get(pat_username=username)
+    loc = patloc.pat_loc
+    doctorsList = Doctors.objects.filter(doc_location=loc)
+    appoitments = Appointment.objects.filter(patient__pat_username=username)
+    params = {
+        "doctorsList": doctorsList,
+        "appoints": appoitments
+    }
+    return render(request, 'fit/viewdoctors.html', params)
+
+
+def bookappointment(request):
+    if request.method == "POST":
+        pat = request.POST['patient']
+        dc = request.POST['appointed']
+        date = request.POST['date']
+        app = Appointment(patient=Patient.objects.get(
+            pat_username=pat), doctor=Doctors.objects.get(doc_username=dc), appointment_date=date)
+        app.save()
+        messages.success(request, "Appoitment Successfull")
+        return redirect('/viewdoctors')
+
+
+def viewpharmacy(request):
+    username = request.user.username
+    patient = Patient.objects.get(pat_username=username)
+    loc = patient.pat_loc
+    pharmacyList = Pharmacy.objects.filter(pharmay_location=loc)
+    params = {
+        "pharmacyList": pharmacyList
+    }
+    return render(request, 'fit/viewpharmacies.html', params)
 
 
 def patientprofile(request):

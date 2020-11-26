@@ -61,3 +61,10 @@ class Pharmacy(models.Model):
 
     def __str__(self):
         return self.phar_name
+
+
+class Appointment(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
+    doctor = models.ForeignKey(Doctors, on_delete=models.CASCADE, null=True)
+    appointment_date = models.DateField()
+    appoint_id = models.AutoField(primary_key=True)

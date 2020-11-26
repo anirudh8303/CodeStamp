@@ -1036,14 +1036,14 @@
                 class="btn card-text mx-2 mt-5"
                 style="background-color: rgb(30, 165, 142); font-size: medium;"
                 data-toggle="modal"
-                data-target="#{{p.disease_name}}"
+                data-target="#{{p.pat}}{{p.disease_name}}"
               >
                 View Prescription
               </button>
               <!-- Medicines Modal -->
             <div
             class="modal fade"
-            id="{{p.disease_name}}"
+            id="{{p.pat}}{{p.disease_name}}"
             tabindex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
