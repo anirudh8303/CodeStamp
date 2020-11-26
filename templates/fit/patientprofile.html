@@ -15,8 +15,19 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="/css/style.css" type="text/css"> -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
     <!-- <link rel="stylesheet" href="css/font-awesome-ie7.min.css"> -->
-    <title>Patient Dashboard~All Diseases</title>
+    <title>Patient Profile</title>
     <style>
       :root {
         --header-height: 3rem;
@@ -910,18 +921,18 @@
       /*===== MAIN CONTENT =====*/
       /*=================*/
       @media only screen and (min-width: 300px) {
-        .cd-content-wrapper {
-          padding: 80px 30px 0px;
+        .bg {
+          padding-top: 80px;
         }
       }
       @media only screen and (min-width: 767px) {
-        .cd-content-wrapper {
+        .bg {
           padding-top: 100px;
           padding-left: 100px;
         }
       }
       @media only screen and (min-width: 1023px) {
-        .cd-content-wrapper {
+        .bg {
           padding-top: 100px;
           padding-left: 150px;
         }
@@ -943,6 +954,142 @@
         height: 100px;
         width: 100px;
         border-radius: 50%;
+      }
+      /* Doctor Profile */
+      .bg {
+        /* you can add overflow:hidden here to make the scrollbar disappear */
+        overflow: hidden;
+        /* padding-top: 60px; */
+        /* padding-left: 15%; */
+        height: 100%;
+        width: 100%;
+        background: white;
+      }
+      #button-back {
+        padding: 15px;
+        color: white;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+        font-size: 20pt;
+      }
+
+      .profile-body {
+        margin: 25px;
+      }
+
+      .profile {
+        margin-top: -45px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 25px;
+        background-color: rgb(190, 196, 195);
+        padding: 20px;
+        z-index: 0;
+      }
+
+      .socialmedia {
+        text-align: center;
+      }
+
+      .photo {
+        margin: 25px;
+      }
+
+      .image--cover {
+        width: 170px;
+        height: 170px;
+        border: #fff 3px solid;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-top: -40px;
+      }
+
+      .username,
+      .profession,
+      .locationname,
+      .descricao {
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        padding: 0;
+        margin: 1px;
+      }
+
+      .username {
+        font-size: 20pt;
+        margin: 2px;
+      }
+
+      .profession {
+        font-size: 14pt;
+      }
+
+      .locationname {
+        font-size: 14pt;
+        margin: 2px;
+      }
+
+      .descricao {
+        border-top: #969696 solid 1px;
+        padding: 10px;
+        font-size: 11pt;
+        margin: 5px;
+      }
+
+      .button-facebook,
+      .button-instagram,
+      .button-twitter,
+      .button-whatsapp {
+        padding: 5px;
+        font-size: 30pt;
+      }
+      .button-facebook {
+        color: #3c5a99;
+      }
+      .button-instagram {
+        color: #893dc2;
+      }
+      .button-twitter {
+        color: #1da1f2;
+      }
+      .button-whatsapp {
+        color: #4ac959;
+      }
+
+      #rating-stars {
+        margin: 4px;
+      }
+
+      #rating-stars .stars {
+        display: inline-flex;
+      }
+      #rarate-input {
+        pointer-events: none;
+      }
+      #rating-stars .rate-input {
+        position: absolute;
+        left: -9999px;
+      }
+      #rating-stars label {
+        cursor: pointer;
+        padding: 1px;
+        font-size: 20pt;
+      }
+      #rating-stars .star-icon {
+        color: orange;
+      }
+
+      #rating-stars .rate-input:checked ~ .star-label .star-icon {
+        color: #999;
+      }
+      #rating-stars .stars:hover .star-label .star-icon {
+        color: orange;
+      }
+      #rating-stars .rate-input:hover ~ .star-label .star-icon {
+        color: #999;
       }
     </style>
   </head>
@@ -988,13 +1135,13 @@
     <main-tamvan class="cd-main-content">
       <nav class="cd-side-nav">
         <ul>
-          <li class="cd-label">PHARMACIST</li>
+          <li class="cd-label">DOCTOR</li>
           <li class="has-children">
             <a href="/patientprofile/">Dashboard</a>
           </li>
 
           <li class="has-children">
-            <a href="/pat/">Your Medical Details</a>
+            <a href="/pat/">Your Medical History</a>
           </li>
         </ul>
         <ul>
@@ -1002,84 +1149,170 @@
           <li class="action-btn"><a href="/contactus/">Contact Us</a></li>
         </ul>
       </nav>
-      <!-- main work -->
-
-      <div class="container cd-content-wrapper">
-        <h1 style="font-weight: bolder; color: var(--first-color-darken);">
-          Your Medical History
-        </h1>
-        <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4">
-          {% for p in profile %}
-          <div class="card">
-            <div class="card-body">
-              <img
-                class="card-img-top"
-                src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-128.png"
+    </main-tamvan>
+    <!-- main work -->
+    <div class="container bg">
+      <!-- <a href="#"><i class="fas fa-arrow-left" id="button-back"></i></a> -->
+      <div class="profile-body">
+        <div class="photo">
+          <img
+            src="https://www.iconbunny.com/icons/media/catalog/product/2/1/2131.12-doctor-icon-iconbunny.jpg"
+            class="image--cover"
+          />
+        </div>
+        <div class="profile">
+          <div id="rating-stars" align="center">
+            <div class="stars">
+              <label aria-label="first-star" class="star-label" for="rate-1"
+                ><i class="rate-icon star-icon fa fa-star"></i
+              ></label>
+              <input
+                class="rate-input"
+                name="rating"
+                id="rate-1"
+                value="1"
+                type="radio"
+              />
+              <label aria-label="second-star" class="star-label" for="rate-2"
+                ><i class="rate-icon star-icon fa fa-star"></i
+              ></label>
+              <input
+                class="rate-input"
+                name="rating"
+                id="rate-2"
+                value="2"
+                type="radio"
+              />
+              <label aria-label="third-star" class="star-label" for="rate-3"
+                ><i class="rate-icon star-icon fa fa-star"></i
+              ></label>
+              <input
+                class="rate-input"
+                name="rating"
+                id="rate-3"
+                value="3"
+                type="radio"
+              />
+              <label aria-label="fourth-star" class="star-label" for="rate-4"
+                ><i class="rate-icon star-icon fa fa-star"></i
+              ></label>
+              <input
+                class="rate-input"
+                name="rating"
+                id="rate-4"
+                value="4"
+                type="radio"
+              />
+              <label aria-label="fifth-star" class="star-label" for="rate-5"
+                ><i class="rate-icon star-icon fa fa-star"></i
+              ></label>
+              <input
+                class="rate-input"
+                name="rating"
+                id="rate-5"
+                value="5"
+                type="radio"
               />
             </div>
-            <div class="card-body">
-              <h3
-                class="card-title mb-4"
-                style="font-weight: bolder; font-size: larger;"
-              >
-                Patient Username: {{p.pat}}
-              </h3>
-              <h3
-                class="card-title mb-4"
-                style="font-weight: bolder; font-size: larger;"
-              >
-                Doctor Username: {{p.doc}}
-              </h3>
-              <h3 style="font-size: medium;">
-                Disease Name : {{p.disease_name}}
-              </h3>
-              <button
-                type="button"
-                class="btn card-text mx-2 mt-3"
-                style="background-color: rgb(30, 165, 142); font-size: medium;"
-                data-toggle="modal"
-                data-target="#{{p.pat}}{{p.disease_name}}"
-              >
-                View Prescribed Medicines
-              </button>
-              <!-- Medicines Modal -->
-              <div
-                class="modal fade"
-                id="{{p.pat}}{{p.disease_name}}"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5
-                        style="color: #087056;"
-                        class="modal-title"
-                        id="exampleModalLabel"
+          </div>
+          {% for p in profile %}
+          <h1 class="username">{{p.pat_username}}</h1>
+          <h2 class="profession">{{p.pat_name}}</h2>
+          <br />
+          <h3 class="locationname">
+            <i class="fas fa-map-marker-alt"></i> {{p.pat_location}}
+          </h3>
+          <p class="descricao">
+            {{p.pat_address}}
+          </p>
+          <center>
+            {% if p.pat_address == "" %}
+            <button
+              type="button"
+              class="btn btn-success mx-2"
+              data-toggle="modal"
+              data-target="#completeProfile"
+              style="height: 40px; width: auto; border-radius: 10px;"
+            >
+              Complete Profile
+            </button>
+            {% endif %}
+          </center>
+          <!-- Profile update  Modal -->
+          <div
+            class="modal fade"
+            id="completeProfile"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5
+                    style="color: #087056;"
+                    class="modal-title"
+                    id="exampleModalLabel"
+                  >
+                    Update Profile
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form
+                    method="post"
+                    action="/updatepatientprofile/"
+                    enctype="multipart/form-data"
+                  >
+                    {% csrf_token %}
+                    <input type="hidden" value="{{p.pat_id}}" name="patid" />
+                    <div class="form-group">
+                      <label for="exampleInputPhone" style="color: #087056;"
+                        >Phone</label
                       >
-                        Prescribed Medicines by doctor
-                      </h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="exampleInputPhone"
+                        name="phone"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleAddress" style="color: #087056;">
+                        Complete Address</label
                       >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleAddress"
+                        name="address"
+                        required
+                      />
                     </div>
-                    <div class="modal-body">
-                      <center>
-                        <h4 class="my-3">1-) {{p.med1}}</h4>
-                        <h4 class="my-3">2-) {{p.med2}}</h4>
-                        <h4 class="my-3">3-) {{p.med3}}</h4>
-                        <h4 class="my-3">4-) {{p.med4}}</h4>
-                        <h4 class="my-3">5-) {{p.med5}}</h4>
-                        <h4 class="my-3">6-) {{p.med6}}</h4>
-                      </center>
+                    <div class="form-group">
+                      <label for="exampleid" style="color: #087056;">
+                        ID_proof</label
+                      >
+                      <input
+                        type="file"
+                        class="form-control"
+                        id="exampleid"
+                        name="pharmacyidProof"
+                        required
+                      />
                     </div>
-                  </div>
+                    <button type="submit" class="btn btn-success">
+                      Update Profile
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -1087,8 +1320,7 @@
           {% endfor %}
         </div>
       </div>
-      <!-- .cd-content-wrapper -->
-    </main-tamvan>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

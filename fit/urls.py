@@ -14,6 +14,7 @@ urlpatterns = [
     path('contactus/', views.contactus, name="contactus"),
     path('doctorprofile/', views.doctorprofile, name="doctorprofile"),
     path('pharmacyprofile/', views.pharmacyprofile, name="pharmacyprofile"),
+    path('patientprofile/', views.patientprofile, name="patientprofile"),
     path('updatedoctorprofile/', views.updatedoctorprofile,
          name="updatedoctorprofile"),
     path('updatepharmacyprofile/', views.updatepharmacyprofile,

@@ -11,12 +11,13 @@ def index(request):
     return render(request, 'fit/index.html')
 
 
-def patientpage(request):
-    return render(request, 'fit/patientDashboard.html')
-
-
-def about(request):
-    return render(request, 'fit/aboutus.html')
+def patientprofile(request):
+    username = request.user.username
+    profile = Patient.objects.filter(pat_username=username)
+    params = {
+        "profile": profile
+    }
+    return render(request, 'fit/patientprofile.html', params)
 
 
 def pharmacyprofile(request):
@@ -36,6 +37,72 @@ def doctorprofile(request):
         "profile": profile
     }
     return render(request, 'fit/doctorprofiledashboard.html', params)
+
+
+def handleSignUp(request):
+    if request.method == "POST":
+        email1 = request.POST['email1']
+        fname = request.POST['fname']
+        username = request.POST['username1']
+        loc = request.POST['loc']
+        pass1 = request.POST['pass1']
+        pass2 = request.POST['pass2']
+        chck = request.POST['chklgin']
+        if chck == "Patient":
+            if pass1 == pass2:
+                myuser = User.objects.create_user(username, email1, pass1)
+                myuser.save()
+                pat = Patient(pat_username=username, pat_loc=loc,
+                              pat_name=fname, pat_email=email1)
+                pat.save()
+                messages.success(
+                    request, "You are signed up kindly login with your username and password now !")
+                return redirect('/')
+            else:
+                messages.warning(request, "Passwords did not match !")
+                return redirect('/')
+        if chck == "Doctor":
+            if pass1 == pass2:
+                myuser = User.objects.create_user(username, email1, pass1)
+                myuser.save()
+                doc = Doctors(doc_username=username, doc_location=loc,
+                              doc_name=fname, doc_email=email1)
+                doc.save()
+                messages.success(
+                    request, "You are signed up kindly login with your username and password now !")
+                return redirect('/')
+            else:
+                messages.warning(request, "Passwords did not match !")
+                return redirect('/')
+        if chck == "Pharmacist":
+            if pass1 == pass2:
+                myuser = User.objects.create_user(username, email1, pass1)
+                myuser.save()
+                ph = Pharmacy(phar_username=username, pharmay_location=loc,
+                              phar_name=fname, phar_email=email1)
+                ph.save()
+                messages.success(
+                    request, "You are signed up kindly login with your username and password now !")
+                return redirect('/')
+            else:
+                messages.warning(request, "Passwords did not match !")
+                return redirect('/')
+
+    else:
+        return HttpResponse('404-Not Found')
+
+
+def patientpage(request):
+    username = request.user.username
+    profile = Disease.objects.filter(pat__pat_username=username)
+    params = {
+        "profile": profile
+    }
+    return render(request, 'fit/patientDashboard.html', params)
+
+
+def about(request):
+    return render(request, 'fit/aboutus.html')
 
 
 def updatepharmacyprofile(request):
@@ -93,53 +160,6 @@ def pharpage(request):
     return render(request, 'fit/pharmacyDashboard.html', params)
 
 
-def handleSignUp(request):
-    if request.method == "POST":
-        email1 = request.POST['email1']
-        fname = request.POST['fname']
-        username = request.POST['username1']
-        loc = request.POST['loc']
-        pass1 = request.POST['pass1']
-        pass2 = request.POST['pass2']
-        chck = request.POST['chklgin']
-        if chck == "Patient":
-            if pass1 == pass2:
-                myuser = User.objects.create_user(username, email1, pass1)
-                myuser.save()
-                pat = Patient(pat_username=username, pat_loc=loc,
-                              pat_name=fname, pat_email=email1)
-                pat.save()
-                return redirect('/pat')
-            else:
-                messages.warning(request, "Passwords did not match !")
-                return redirect('/')
-        if chck == "Doctor":
-            if pass1 == pass2:
-                myuser = User.objects.create_user(username, email1, pass1)
-                myuser.save()
-                doc = Doctors(doc_username=username, doc_location=loc,
-                              doc_name=fname, doc_email=email1)
-                doc.save()
-                return redirect('/doc')
-            else:
-                messages.warning(request, "Passwords did not match !")
-                return redirect('/')
-        if chck == "Pharmacist":
-            if pass1 == pass2:
-                myuser = User.objects.create_user(username, email1, pass1)
-                myuser.save()
-                ph = Pharmacy(phar_username=username, pharmay_location=loc,
-                              phar_name=fname, phar_email=email1)
-                ph.save()
-                return redirect('/phar')
-            else:
-                messages.warning(request, "Passwords did not match !")
-                return redirect('/')
-
-    else:
-        return HttpResponse('404-Not Found')
-
-
 def handleLogin(request):
     if request.method == "POST":
         username = request.POST['username']
@@ -150,13 +170,13 @@ def handleLogin(request):
     if user is not None:
         if Patient.objects.filter(pat_username=username).count() != 0:
             login(request, user)
-            return redirect('/pat')
+            return redirect('/patientprofile/')
         if Doctors.objects.filter(doc_username=username).count() != 0:
             login(request, user)
-            return redirect('/doc')
+            return redirect('/doctorprofile/')
         if Pharmacy.objects.filter(phar_username=username).count() != 0:
             login(request, user)
-            return redirect('/phar')
+            return redirect('/pharmacyprofile/')
     else:
         messages.error(request, "Invalid Credential")
 
