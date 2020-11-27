@@ -29,6 +29,7 @@
       .body
         {
             background-color: #118b6d;
+            /* height: 100vh; */
         }
        :root {
         --header-height: 3rem;
@@ -117,12 +118,12 @@
         
       }
       .nav {
-        height: var(--header-height);
+        height: (var(--header-height)+1.5rem);
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-bottom: 3px solid #087056;
-        border-bottom-left-radius: 8px;
+        /* border-bottom-left-radius: 8px; */
       }
 
       @media screen and (max-width: 768px) {
@@ -246,9 +247,9 @@
 	background-color: #118b6d;
 	border: 2px solid #118b6d;
 
-	webkit-transition:all .5s ease;
+	/* webkit-transition:all .5s ease;
  	moz-transition:all .5s ease;
- 	os-transition:all .5s ease;
+ 	os-transition:all .5s ease; */
  	transition:all .5s ease;
 
 }
@@ -280,7 +281,7 @@
     <header class="l-header">
       <nav class="nav bd-grid">
         <div>
-          <a href="" class="nav__logo"
+          <a href="/" class="nav__logo"
             ><img
               src="\media\fit\front\logo.png"
               style="height: 51px; width: auto;"
@@ -329,13 +330,13 @@
                 <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200">
                   <span class="fa fa-info"></span>
                   <h2>About Amycare </h2>
-                  <p class="lead">Amycare connects patients to doctors letting them book an appointment with them and then leading them to their nearby pharmacists for the medicines prescribed by the doctor. </p>
-                </div>
+                  <p class="lead">A patient-centered information exchange system where the patients, doctors and the pharmacists are all connected under one roof.
+                  </div>
                 <div class="clearfix visible-md-block visible-sm-block"></div>
                 <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200">
                   <span class="fa fa-file"></span>
                   <h2>How is it Helpful?</h2>
-                  <p class="lead">It helps the patient to share his/her medical history with thw doctor and the previous medications digitally. It also connects to the nearby chemist for easy availability of right medicines.</p>
+                  <p class="lead">It helps the patient to share his/her medical history with the doctor and the previous medications digitally. It also connects to the nearby chemist for easy availability of right medicines.</p>
                 </div>
                 
               </div>

@@ -123,12 +123,12 @@
 
       /* /===== NAV =====/ */
       .nav {
-        height: var(--header-height);
+        height: (var(--header-height)+1.5rem);
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-bottom: 3px solid #087056;
-        border-bottom-left-radius: 8px;
+        /* border-bottom-left-radius: 8px; */
       }
 
       @media screen and (max-width: 768px) {
@@ -237,7 +237,7 @@
         }
 
         .nav {
-          height: calc(var(--header-height) + 1.5rem);
+          height: (var(--header-height) + 1.5rem);
         }
 
         .nav__toggle,
@@ -319,7 +319,7 @@
     <header class="l-header">
       <nav class="nav bd-grid">
         <div>
-          <a href="" class="nav__logo"><img src="\media\fit\front\logo.png" style="height:51px; width:auto" /></a>
+          <a href="/" class="nav__logo"><img src="\media\fit\front\logo.png" style="height:51px; width:auto" /></a>
         </div>
 
         <div class="nav__toggle" id="nav-toggle">
@@ -333,16 +333,16 @@
 
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="#home" class="nav__link active">Home</a>
+              <a href="/" class="nav__link active">Home</a>
             </li>
             <li class="nav__item">
-              <a href="#about" class="nav__link">About</a>
+              <a href="/about/" class="nav__link">About</a>
             </li>
             <li class="nav__item">
               <a href="#skills" class="nav__link">Blog</a>
             </li>
             <li class="nav__item">
-              <a href="#contact" class="nav__link">Contact</a>
+              <a href="/contactus/" class="nav__link">Contact</a>
             </li>
           </ul>
         </div>

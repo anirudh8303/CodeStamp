@@ -70,6 +70,7 @@
         font-family: var(--body-font);
         font-size: var(--normal-font-size);
         font-weight: 500;
+        /* height: 100vh; */
       }
 
       h1,
@@ -103,7 +104,7 @@
       }
 
       .l-header {
-        width: 100%;
+        width: 100vw;
         position: fixed;
         top: 0;
         left: 0;
@@ -111,12 +112,12 @@
         background-color: var(--first-color);
       }
       .nav {
-        height: var(--header-height);
+        height: (var(--header-height)+1.5rem);
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-bottom: 3px solid #087056;
-        border-bottom-left-radius: 8px;
+        /* border-bottom-left-radius: 8px; */
       }
 
       @media screen and (max-width: 768px) {
@@ -170,6 +171,7 @@
       }
       .home {
         background-color: var(--first-color);
+        height: 120vh;
       }
 
       .home__container {
@@ -180,7 +182,7 @@
 
       .home__img {
         position: relative;
-        padding-top: 1.5rem;
+        padding: 1.5rem;
         justify-self: center;
         width: 302px;
         height: 233px;
@@ -222,6 +224,7 @@
       @media screen and (min-width: 768px) {
         body {
           margin: 0;
+          padding: 0;
         }
 
         .nav {
@@ -290,7 +293,7 @@
     <header class="l-header">
       <nav class="nav bd-grid">
         <div>
-          <a href="" class="nav__logo"
+          <a href="/" class="nav__logo"
             ><img
               src="\media\fit\front\logo.png"
               style="height: 51px; width: auto;"
@@ -326,8 +329,8 @@
     <main class="l-main">
       <!--===== HOME =====-->
       <section class="home" id="home">
-        <div class="home__container bd-grid">
-          <div class="home__img">
+        <div class="container home__container bd-grid">
+          <div class="container home__img">
             <img src="\media\fit\front\img2.png" alt="" class="move" />
           </div>
 
@@ -624,17 +627,17 @@
       closeMenu.addEventListener("click", () => {
         navMenu.classList.remove("show");
       });
-      document.addEventListener("mousemove", move);
-      function move(e) {
-        this.querySelectorAll(".move").forEach((layer) => {
-          const speed = layer.getAttribute("data-speed");
+      // document.addEventListener("mousemove", move);
+      // function move(e) {
+      //   this.querySelectorAll(".move").forEach((layer) => {
+      //     const speed = layer.getAttribute("data-speed");
 
-          const x = (window.innerWidth - e.pageX * speed) / 120;
-          const y = (window.innerHeight - e.pageY * speed) / 120;
+      //     const x = (window.innerWidth - e.pageX * speed) / 120;
+      //     const y = (window.innerHeight - e.pageY * speed) / 120;
 
-          layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
-        });
-      }
+      //     layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      //   });
+      // }
       // NAV
       gsap.from(".nav_logo, .nav_toggle", {
         opacity: 0,

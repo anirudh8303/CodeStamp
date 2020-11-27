@@ -268,7 +268,7 @@
         z-index: 2;
         top: 0;
         left: 0;
-        height: 45px;
+        height: (var(--header-height)+1.5rem);
         width: 100%;
         background: var(--first-color);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -283,7 +283,7 @@
       @media only screen and (min-width: 768px) {
         .cd-main-header {
           position: fixed;
-          height: 55px;
+          height: (var(--header-height)+1.5rem);
         }
       }
 
@@ -1160,11 +1160,11 @@
         ><img src="/media/fit/front/logo.png" alt="Logo" style="height: 40px;"
       /></a>
 
-      <div class="cd-search is-hidden">
+      <!-- <div class="cd-search is-hidden">
         <form action="#0">
           <input type="search" placeholder="Search..." />
         </form>
-      </div>
+      </div> -->
       <!-- cd-search -->
 
       <a href="#0" class="cd-nav-trigger"><span></span></a>
@@ -1183,8 +1183,8 @@
             </a>
 
             <ul>
-              <li><a href="#0">My Account</a></li>
-              <li><a href="#0">Edit Account</a></li>
+              <!-- <li><a href="#0">My Account</a></li> -->
+              <!-- <li><a href="#0">Edit Account</a></li> -->
               <li><a href="/logout/">Logout</a></li>
             </ul>
           </li>
