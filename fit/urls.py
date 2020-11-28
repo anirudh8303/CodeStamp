@@ -26,5 +26,7 @@ urlpatterns = [
     path('viewpharmacy/', views.viewpharmacy,
          name="viewpharmacy"),
     path('bookappointment/', views.bookappointment,
-         name="bookappointment")
+         name="bookappointment"),
+    path('addpatient/', views.addpatient, name="addpatient"),
+    path('addmedicine/', views.addmedicine, name="addmedicine"),
 ]

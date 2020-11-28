@@ -1083,6 +1083,43 @@
                     <h4 class="my-3"> 5-) {{p.med5}}</h4>
                     <h4 class="my-3"> 6-) {{p.med6}}</h4>
                   </center>
+                  <form method="POST" action="/addmedicine/">
+                    {% csrf_token %}
+                    <input type="hidden" value={{p.pat}} name="pat">
+                    <input type="hidden" value={{p.disease_name}} name="dise">
+                    {% if p.med1 == "" %}
+                    <label>Add 1st medicine</label>
+                    <input class="my-2" type="text" name="medicine1">
+                    {% endif %}
+                    <br>
+                    {% if p.med2 == "" %}
+                    <label>Add 2nd medicine</label>
+                    <input class="my-2" type="text" name="medicine2">
+                    {% endif %}
+                    <br>
+                    {% if p.med3 == "" %}
+                    <label>Add 3rd medicine</label>
+                    <input type="text" class="my-2" name="medicine3">
+                    {% endif %}
+                    <br>
+                    {% if p.med4 == "" %}
+                    <label>Add 4th medicine</label>
+                    <input type="text" class="my-2" name="medicine4">
+                    {% endif %}
+                    <br>
+                    {% if p.med5 == "" %}
+                    <label>Add 5th medicine</label>
+                    <input type="text" class="my-2" name="medicine5">
+                    {% endif %}
+                    <br>
+                    {% if p.med6 == "" %}
+                    <label>Add 6th medicine</label>
+                    <input type="text" class="my-2" name="medicine6">
+                    <br>
+                    <button class="btn btn-success" style="font-size: small;" type ="submit">Add medicine</button>
+                    {% endif %}
+                    <br>
+                  </form>
                 </div>
               </div>
             </div>
@@ -1140,10 +1177,52 @@
         </button>
       </div>
       <div class="modal-body">
-       Add patient info <br>
-       user id<br>
-       patient name'<br>
-     ......
+        <form method="POST" action="/addpatient/">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="patientusername" style="color: #087056;">
+              Patient Username</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="patientusername"
+              name="patientusername"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="disease" style="color: #087056;">
+              Disease name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="disease"
+              name="disease"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="diseasedesc" style="color: #087056;">
+              Disease description</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="desc"
+              name="desc"
+              required
+            />
+          </div>
+          <button
+            class="btn btn-success"
+            style="font-size: small;"
+            type="submit"
+          >
+            Add Patient
+          </button>
+        </form>
       </div>
       
     </div>

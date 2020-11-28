@@ -245,3 +245,65 @@ def handleLogout(request):
     logout(request)
     messages.success(request, "You are Logged Out !")
     return redirect('/')
+
+
+def addmedicine(request):
+    if request.method == "POST":
+        pat_name = request.POST['pat']
+        disease = request.POST['dise']
+        patient = Disease.objects.get(
+            pat__pat_username=pat_name, disease_name=disease)
+        try:
+            medicine1 = request.POST['medicine1']
+            patient.med1 = medicine1
+            patient.save()
+        except:
+            print("Medicine one already there")
+        try:
+            medicine2 = request.POST['medicine2']
+            patient.med2 = medicine2
+            patient.save()
+        except:
+            print("Medicine two already there")
+        try:
+            medicine3 = request.POST['medicine3']
+            patient.med3 = medicine3
+            patient.save()
+        except:
+            print("Medicine three already there")
+        try:
+            medicine4 = request.POST['medicine4']
+            patient.med4 = medicine4
+            patient.save()
+        except:
+            print("Medicine four already there")
+        try:
+            medicine5 = request.POST['medicine5']
+            patient.med5 = medicine5
+            patient.save()
+        except:
+            print("Medicine five already there")
+        try:
+            medicine6 = request.POST['medicine6']
+            patient.med6 = medicine6
+            patient.save()
+        except:
+            print("required medicine added")
+        messages.success(request, "Medicines added")
+        return redirect('/doc')
+
+
+def addpatient(request):
+    if request.method == "POST":
+        docuser = request.user.username
+        patient = request.POST['patientusername']
+        disease = request.POST['disease']
+        desc = request.POST['desc']
+        if Patient.objects.filter(pat_username=patient).count() != 0:
+            d = Disease(pat=Patient.objects.get(pat_username=patient), doc=Doctors.objects.get(
+                doc_username=docuser), disease_name=disease, disease_description=desc)
+            d.save()
+            return redirect('/doc')
+        else:
+            messages.warning("patient with this username does not exist")
+            return redirect('/doc')

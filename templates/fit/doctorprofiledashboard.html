@@ -267,7 +267,7 @@
         z-index: 2;
         top: 0;
         left: 0;
-        height: (var(--header-height)+1.5rem);
+        height: (var(--header-height) + 1.5rem);
         width: 100%;
         background: var(--first-color);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -282,7 +282,7 @@
       @media only screen and (min-width: 768px) {
         .cd-main-header {
           position: fixed;
-          height: (var(--header-height)+1.5rem);
+          height: (var(--header-height) + 1.5rem);
         }
       }
 
@@ -1143,7 +1143,11 @@
           <li class="has-children">
             <a href="/doc/">Patient Profiles</a>
           </li>
-          <li class="has-children"><a href="" data-toggle="modal" data-target="#exampleModal3">Add Patients</a></li>
+          <li class="has-children">
+            <a href="" data-toggle="modal" data-target="#exampleModal3"
+              >Add Patients</a
+            >
+          </li>
         </ul>
         <ul>
           <li class="cd-label">NEED OUR HELP</li>
@@ -1335,28 +1339,79 @@
       </div>
     </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Patient</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal3"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Patient</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="/addpatient/">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="patientusername" style="color: #087056;">
+                  Patient Username</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="patientusername"
+                  name="patientusername"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="patientusername" style="color: #087056;">
+                  Disease name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="disease"
+                  name="disease"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="diseasedesc" style="color: #087056;">
+                  Disease description</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="desc"
+                  name="desc"
+                  required
+                />
+              </div>
+              <button
+                class="btn btn-success"
+                style="font-size: small;"
+                type="submit"
+              >
+                Add Patient
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-       Add patient info <br>
-       user id<br>
-       patient name'<br>
-     ......
-      </div>
-      
     </div>
-  </div>
-</div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
