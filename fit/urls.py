@@ -29,4 +29,5 @@ urlpatterns = [
          name="bookappointment"),
     path('addpatient/', views.addpatient, name="addpatient"),
     path('addmedicine/', views.addmedicine, name="addmedicine"),
+     path('blog/', views.blog, name="blog"),
 ]

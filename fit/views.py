@@ -307,3 +307,6 @@ def addpatient(request):
         else:
             messages.warning("patient with this username does not exist")
             return redirect('/doc')
+
+def blog(request):
+    return render(request, 'fit/blog.html')

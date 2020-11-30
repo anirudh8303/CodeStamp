@@ -172,6 +172,7 @@
       .home {
         background-color: var(--first-color);
         height: 120vh;
+        width: 100vw;
       }
 
       .home__container {
@@ -182,9 +183,9 @@
 
       .home__img {
         position: relative;
-        padding: 1.5rem;
+        /* padding: 1rem; */
         justify-self: center;
-        width: 302px;
+        width: 265px;
         height: 233px;
       }
 
@@ -192,10 +193,12 @@
         position: absolute;
         top: 0;
         left: 0;
+        padding: 1rem;
       }
 
       .home__data {
         color: var(--white-color);
+        padding: 1rem;
       }
 
       .home__title {
@@ -221,6 +224,13 @@
       }
 
       /* ===== MEDIA QUERIES =====*/
+      @media screen and (min-width: 769px){
+        .nav__toggle,
+        .nav__close {
+          display: none;
+        }
+
+      }
       @media screen and (min-width: 768px) {
         body {
           margin: 0;
@@ -229,11 +239,6 @@
 
         .nav {
           height: calc(var(--header-height) + 1.5rem);
-        }
-
-        .nav__toggle,
-        .nav__close {
-          display: none;
         }
 
         .nav__list {
@@ -256,15 +261,26 @@
 
         .home__img {
           order: 1;
-          width: 375px;
+          width: 300px;
           height: 289px;
         }
 
         .home__img img {
-          width: 375px;
+          width: 300px;
+        }
+        .home__title{
+          font-size: 3.5rem;
         }
       }
-
+      @media screen and (min-width: 900px){
+        .home__img{
+          width: 420px;
+          height: 400px;
+        }
+        .home__img img{
+          width:420px;  
+        }
+      }
       @media screen and (min-width: 1024px) {
         .bd-grid {
           margin-left: auto;
@@ -277,12 +293,20 @@
         }
 
         .home__img {
-          width: 604px;
+          width: 480px;
           height: 466px;
         }
 
         .home__img img {
-          width: 604px;
+          width: 480px;
+        }
+        .home__title{
+          font-size: var(--big-font-size);
+        }
+      }
+      @media screen and (min-width: 300px) and (max-width:768px) {
+        .home__data{
+          text-align: center;
         }
       }
     </style>
@@ -359,7 +383,7 @@
             <!-- Button trigger login modal -->
             <button
               type="button"
-              class="btn btn-success mx-2"
+              class="btn btn-success mx-2 "
               data-toggle="modal"
               data-target="#login"
             >
@@ -434,7 +458,7 @@
             <!-- Button trigger SignUp modal -->
             <button
               type="button"
-              class="btn btn-success mx-2"
+              class="btn btn-success mx-2 "
               data-toggle="modal"
               data-target="#SignUpModal"
             >
