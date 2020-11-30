@@ -25,14 +25,14 @@
 </ol>
 
 <h2>Testing the project</h2>
-  <p>To test the project follow the steps below:
+  <p>To test the project follow the steps below👇
   <ol>
     <li>We can test the project on local server</li>
     <li>To run it type the command <strong>python manage.py runserver</strong> on Command Prompt</li>
     <li>Then click on the link that will appear after running the command</li>
     <li>It will redirect you to the website</li>
   </ol>
-  <p>Note: Remember you need to run the above command in folder that has the file <i>manage.py</i> 
+  <p>Note⚠: Remember you need to run the above command in folder that has the file <i>manage.py</i> 
   <br>i.e. before running the command change the directory path to the folder with the above file as shown in the image below.</p>
  <img src="media/fit/front/thumbnailCommand.PNG">
 
@@ -40,7 +40,7 @@
   <p align="left"><kbd><img src="media/fit/front/thumbnail.PNG" height="240"></kbd> <kbd><img src="media/fit/front/thumbnailPatient.PNG" height="240"></kbd></p>
   
 <h2>Usage</h2>
-  <p>After clicking the link you will be redirected to the main page. To proceed check the steps:</p>
+  <p>After clicking the link you will be redirected to the main page. To proceed check the steps👇</p>
   <ol>
   <li>You need to login/signup from the button provided as one of the three options i.e.
      <ul>
@@ -68,5 +68,4 @@
       </ul>
   </ol>
   
-
-
+  <p align="center">Made by ❤ by team <b>CodeStomp</b></p>
